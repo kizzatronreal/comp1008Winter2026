@@ -1,7 +1,7 @@
 package wk3;
 
 public class Course {
-
+    public boolean[] values = new boolean[5];
     private String courseName;
     private String courseCode;
     private String[] evaluations;

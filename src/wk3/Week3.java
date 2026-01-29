@@ -22,5 +22,10 @@ public class Week3 {
         classroom.addStudent(new Student(12345, "John Smith", 90));
         classroom.addStudent(new Student(98765, "Mary Johnson", 100));
         System.out.println(classroom.getClassAverage());
+
+        Course c = new Course("Intro to OOP", "comp1008", 6);
+        c.values[0] = true;
+        c.values[1] = false;
+
     }
 }

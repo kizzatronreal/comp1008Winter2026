@@ -1,0 +1,4 @@
+enum:
+    enumerable/enumerator
+        array of constant values
+        drop-down list of values
