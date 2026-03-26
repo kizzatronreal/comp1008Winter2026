@@ -23,5 +23,28 @@ Abstract class
 
 
 Interface
+    a list of requirements (actions)
+    can only have method declarations and constants
+
+Why would you create an interface when an abstract class is more dynamic
+
+1 class can extend only 1 other class. BUT 1 class can IMPLEMENT many interfaces
+
+
+**************************************************************
+
+
+School                              Abstract
+PostSecondarySchool                 Abstract
+Diploma                             Interface
+College                             Concrete
+
+abstract School
+
+abstract PostSecondarySchool extends abstract School
+
+Diploma Interface
+
+College extend PSS implements Diploma
 
 
