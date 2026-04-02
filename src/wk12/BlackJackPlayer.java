@@ -1,5 +1,5 @@
 class BlackJackPlayer extends Participant implements Rules{
-    public Player(String name){
+    public BlackJackPlayer(String name){
         super(name);
     }
     
