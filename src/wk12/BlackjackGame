@@ -1,6 +1,7 @@
 class BlackjackGame {
+    static Random rand = new Random();
+    static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
-        System.out.println("Try programiz.pro");
         
         String[] suits = {"Hearts", "Spades", "Clubs", "Diamonds"};
         
@@ -12,8 +13,8 @@ class BlackjackGame {
         for(String suit : suits){
             
             for(int i = 0; i < ranks.length; i++){
-                deckIndex++;
-                int value = i  <= 8 ? i + 2 : 10;
+            deckIndex++;
+                int value = i  < 8 ? i + 2 : 10;
                 if(i == 12){
                     value = 11;
                 }
@@ -22,5 +23,70 @@ class BlackjackGame {
             
         }
         
+        BlackJackPlayer p1 = new BlackJackPlayer("John");
+        Dealer d1 = new Dealer("Dealer");
+        
+        play(p1, deck);
+        play(d1, deck);
+        
+        Participant winner, loser;
+        
+        winner = p1.getHandTotal() == Participant.BLACKJACK || p1.getHandTotal() < Participant.BLACKJACK && p1.getHandTotal() > d1.getHandTotal() ? p1 : d1 ;
+        
+        loser = winner.getName().equals(p1.getName()) ? d1 : p1;
+        
+        summary(winner, "Won");
+        System.out.println("*".repeat(10));
+        summary(loser, "Loss");
+        
+        
+        
+    }
+    static void summary(Participant p, String status){
+                System.out.println(p.getName() + " " + status + "!");
+        System.out.println(p.getName() + " had a score of " + p.getHandTotal() );
+        p.getHand();
+
+    }
+    static Card getCardFromDeck(Card[] deck){
+        int ranIndex;
+        do{
+        ranIndex = rand.nextInt(deck.length);
+        
+        }
+        while(deck[ranIndex].isUsed());
+        
+        deck[ranIndex].setAsUsed();
+        
+        return deck[ranIndex];
+    }
+    static void play(Participant p, Card[] deck){
+        p.addCardToHand(getCardFromDeck(deck));
+        p.addCardToHand(getCardFromDeck(deck));
+        String answer;
+        
+        
+        
+        while(
+            p instanceof BlackJackPlayer && ((BlackJackPlayer)p).canPlay()  || 
+            p instanceof Dealer && ((Dealer)p).canPlay()  
+        
+        ){
+            p.getHand();
+            System.out.println("Would you like to (h)it or (s)tay?");
+            answer = input.nextLine();
+            if(answer.length() > 0 && answer.toLowerCase().trim().charAt(0) == 'h'){
+                p.addCardToHand(getCardFromDeck(deck));
+                if(p.getHandTotal() == Participant.BLACKJACK){
+                    System.out.println(p.getName() + " got Blackjack");
+                }
+                else if(p.getHandTotal() > Participant.BLACKJACK){
+                    System.out.println(p.getName() + " Busted!");
+                }
+                continue;    
+            }
+            break;
+            
+        }        
     }
 }
