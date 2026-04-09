@@ -35,7 +35,7 @@ class BlackjackGame {
         
         Participant winner, loser;
         //participant doesn't go over 21 (blackjack)
-        winner = p1.getHandTotal() == Participant.BLACKJACK || p1.getHandTotal() < Participant.BLACKJACK && p1.getHandTotal() > d1.getHandTotal() ? p1 : d1 ;
+        winner = p1.getHandTotal() == Participant.BLACKJACK || p1.getHandTotal() < Participant.BLACKJACK && p1.getHandTotal() > d1.getHandTotal() || p1.getHandTotal() <= Participant.BLACKJACK && d1.getHandTotal() > Participant.BLACKJACK ? p1 : d1 ;
         
         loser = winner.getName().equals(p1.getName()) ? d1 : p1;
         
@@ -73,7 +73,7 @@ class BlackjackGame {
         
         while(
             p instanceof BlackJackPlayer && ((BlackJackPlayer)p).canPlay()  || 
-            p instanceof Dealer && ((Dealer)p).canPlay()  
+            p instanceof Dealer && ((Dealer)p).canPlay()
         
         ){
             p.getHand();
