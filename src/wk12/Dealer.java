@@ -1,3 +1,5 @@
+package wk12;
+
 class Dealer extends Participant implements Rules{
   public final int DEALER_STAY = 17;
 

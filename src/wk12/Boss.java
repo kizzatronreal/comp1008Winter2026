@@ -1,3 +1,5 @@
+package wk12;
+
 class Boss extends Player implements Weapon, SpecialMove {
     private int cooldown;
     private int weaponBuffTurns;

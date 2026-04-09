@@ -1,3 +1,4 @@
+package wk12;
 class BlackJackPlayer extends Participant implements Rules{
     public BlackJackPlayer(String name){
         super(name);

@@ -1,3 +1,5 @@
+package wk12;
+
 // Fighter
 class Fighter extends Player implements Shield, Weapon {
     private boolean blocking;

@@ -1,3 +1,5 @@
+package wk12;
+
 class Card{
     private String suit, rank;
     private int value;

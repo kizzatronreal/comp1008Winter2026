@@ -1,3 +1,5 @@
+package wk12;
+
 abstract class Participant{
     private String name;
     private Card[] hand;

@@ -1,3 +1,5 @@
+package wk12;
+
 /*
 Two Players playing against each other
     Player 1: regular player

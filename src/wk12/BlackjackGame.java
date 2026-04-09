@@ -1,3 +1,7 @@
+package wk12;
+import java.util.Random;
+import java.util.Scanner;
+
 class BlackjackGame {
     static Random rand = new Random();
     static Scanner input = new Scanner(System.in);
@@ -30,7 +34,7 @@ class BlackjackGame {
         play(d1, deck);
         
         Participant winner, loser;
-        
+        //participant doesn't go over 21 (blackjack)
         winner = p1.getHandTotal() == Participant.BLACKJACK || p1.getHandTotal() < Participant.BLACKJACK && p1.getHandTotal() > d1.getHandTotal() ? p1 : d1 ;
         
         loser = winner.getName().equals(p1.getName()) ? d1 : p1;

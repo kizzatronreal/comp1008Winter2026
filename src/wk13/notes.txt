@@ -1,0 +1,23 @@
+Car
+Truck
+Motorcycle
+
+
+License: interface
+    getLicenseType: String
+    canDrive(String vehicleType): bool
+    licenseIsSuspended(): bool
+
+Vehicle
+    attributes
+        -numWheels
+        -motorType: String
+        -speed: double
+        -engineRunning: bool
+    actions
+        +moving(direction): abstract void
+        +turnOn: void
+        +turnOff: void
+        getters and setters for 4 instance variables
+
+

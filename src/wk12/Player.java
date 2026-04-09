@@ -1,3 +1,5 @@
+package wk12;
+
 import java.util.Random;
 // Abstract Player
 abstract class Player {

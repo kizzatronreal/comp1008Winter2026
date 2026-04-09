@@ -1,3 +1,5 @@
+package wk12;
+
 import java.util.Random;
 class Game {
     public static void main(String[] args) {
